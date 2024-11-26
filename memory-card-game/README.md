@@ -70,4 +70,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
 
-- Background img: https://wallpaperaccess.com/full/2656403.png
+- Background imgage links: 
+Hidden leaf village - https://wallpaperaccess.com/full/2656403.png
+
+Village hidden in the rain - https://wallpapercave.com/wp/wp5917571.png
+
+
+TO-DO:
+- Update background photo based on level; use images in chronological order
+- Add soundtrack - different sound for each level 
