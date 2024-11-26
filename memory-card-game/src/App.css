@@ -1,5 +1,9 @@
 .App {
+  height: 100vh;
   text-align: center;
+  background-image: url('img/pain-background.png');
+  background-size: cover;
+  background-position: center;
 }
 
 .App-logo {
