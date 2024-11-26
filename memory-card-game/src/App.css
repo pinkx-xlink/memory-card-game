@@ -5,8 +5,13 @@
   background-size: cover;
   background-position: center;
 }
+.App-header {
+  margin: 0;
+  padding: 0;
+}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.card-container {
+  display: flex;
+  align-items:center;
+  justify-content: space-evenly;
 }
