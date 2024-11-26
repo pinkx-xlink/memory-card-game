@@ -1,6 +1,6 @@
 import './App.css';
 import React, { useEffect, useState } from 'react';
-
+import RandomImages from './images';
 
 
 
@@ -18,9 +18,9 @@ function App() {
           <h1>Memory Card Game</h1>
         </header>
         <div class="card-container">
-          <img src={narutoImgUrl}/>
+          {/* <img src={narutoImgUrl}/>
           <img src={sasukeImgUrl} />
-          <img src={tsunadeImgUrl} />
+          <img src={tsunadeImgUrl} /> */}
         </div>
         
       </div>

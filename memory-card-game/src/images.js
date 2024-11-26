@@ -15,7 +15,7 @@ const gaaraImgUrl = "https://static.wikia.nocookie.net/naruto/images/2/20/Gaara_
 
 const imgArray = [narutoImgUrl, sasukeImgUrl, tsunadeImgUrl, shikamaruImgUrl, zabuzaImgUrl, asumaImgUrl, gamatatsuImgUrl, kankuroImgUrl, hinataImgUrl, chojiImgUrl, kakashiImgUrl, gaaraImgUrl];
 
-const getRandomImages(arr, num) => {
+const getRandomImages = (arr, num) => {
   const shuffled = [...arr].sort(() => 0.5 - Math.random());
   return shuffled.slice(0, num);
 }
@@ -25,6 +25,7 @@ const RandomImages = () => {
     useEffect(() => {
       setRandomImages(getRandomImages(imgArray, 3));
     }, []);
+    
     return (
       <div>
         {randomImages.map((image, index) => (
