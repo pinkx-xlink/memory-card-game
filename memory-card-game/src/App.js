@@ -5,7 +5,7 @@ const imgUrl = "https://static.wikia.nocookie.net/naruto/images/d/d6/Naruto_Part
 
 function App() {
   function startGame() {
-    prompt('Start game?');
+    console.log('Starting game...');
   }
   startGame();
 
