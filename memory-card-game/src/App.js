@@ -29,10 +29,13 @@ function App() {
     <>
       <div className="App">
         <header className="App-header">
-        <img src={narutoImgUrl}/>
-        <img src={sasukeImgUrl} />
-        <img src={tsunadeImgUrl} />
+          <h1>Memory Card Game</h1>
         </header>
+        <div class="card-container">
+          <img src={narutoImgUrl}/>
+          <img src={sasukeImgUrl} />
+          <img src={tsunadeImgUrl} />
+        </div>
       </div>
     </>
   );
