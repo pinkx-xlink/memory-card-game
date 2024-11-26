@@ -71,10 +71,11 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 
 - Background imgage links: 
-Hidden leaf village - https://wallpaperaccess.com/full/2656403.png
+Hidden leaf village img src - https://wallpaperaccess.com/full/2656403.png
 
-Village hidden in the rain - https://wallpapercave.com/wp/wp5917571.png
+Village hidden in the rain img src - https://wallpapercave.com/wp/wp5917571.png
 
+CHARACTER CARDS SOURCE: https://api-dattebayo.vercel.app/cards
 
 TO-DO:
 - Update background photo based on level; use images in chronological order
