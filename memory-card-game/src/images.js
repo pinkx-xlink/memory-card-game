@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import ClickableImage from "./clickCounter";
 const Gallery = () => {
   // const narutoImgUrl = "https://static.wikia.nocookie.net/naruto/images/d/d6/Naruto_Part_I.png"
   // const sasukeImgUrl = "https://static.wikia.nocookie.net/naruto/images/2/21/Sasuke_Part_1.png"; 
@@ -43,6 +43,7 @@ const Gallery = () => {
   const handleImgClick = (event) => {
     console.log(`You clicked ${event.target.alt}`);
     getRandomImages();
+    ClickableImage();
   };
 
   return (
