@@ -12,14 +12,8 @@ function App() {
         <header className="App-header">
           {/* dding h1 added a silly black margin at the top of the page */}
           <h1>Memory Card Game</h1>
-        
         </header>
         <div class="card-container">
-
-
-          {/* <img src={narutoImgUrl}/>
-          <img src={sasukeImgUrl} />
-          <img src={tsunadeImgUrl} /> */}
         </div>
         
       </div>
