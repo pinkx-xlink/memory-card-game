@@ -36,7 +36,7 @@ const Gallery = () => {
     let randomCharacters = [];
     
     const shuffled = imgArray.sort(() => 0.5 - Math.random());
-    const selected = shuffled.slice(0, 3);
+    const selected = shuffled.slice(0, 4);
     setSelectedImages(selected);
   }
 
