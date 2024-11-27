@@ -11,12 +11,15 @@ const Gallery = () => {
     //   }));
     // };
 
+    // THIS WORKS KINDA -
+    // but it goes off when any 2 img are clicked, not the same one twice.
     setClickCount(prevCount => prevCount + 1);
     if (clickCount + 1 === 2) {
         alert('Clicked twice!! ): the Hidden Leaf has exploded.');
         // Add a gameover screen with a pic of Jiraiya Boy
         setClickCount(0);
     }
+    
     console.log(`You clicked ${event.target.alt}`);
     getRandomImages();
     // ClickableImage();
