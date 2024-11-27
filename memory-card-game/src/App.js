@@ -1,7 +1,4 @@
 import './App.css';
-import Gallery from './images';
-// import React, { useEffect, useState } from 'react';
-
 
 function App() {
   function startGame() {
