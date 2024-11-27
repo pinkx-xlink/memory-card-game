@@ -38,8 +38,8 @@ const Gallery = () => {
     setSelectedImages(selected);
   }
 
-  const handleImgClick = () => {
-    //console.log(`You clicked ${image.alt}`);
+  const handleImgClick = (event) => {
+    console.log(`You clicked ${event.target.alt}`);
   };
 
   return (
