@@ -82,3 +82,5 @@ TO-DO:
 - Add soundtrack - different sound for each level 
 - Add name tags to each character card
 - Add loop to audio clip
+- Replace get random img btn with "Start Game" btn, and make it disappear after clicked using useState
+- Add an info screen before game starts ("You must click these cards or else the Hidden Leaf will explode" or something)
