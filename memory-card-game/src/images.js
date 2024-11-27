@@ -34,7 +34,7 @@ const [selectedImages, setSelectedImages] = useState([]);
   return (
     <>
       <button onClick={getRandomImages}>Get Random img</button>
-      <div>
+      <div class="card-container">
         {selectedImages.map((image, index) => (
           <img key={index} src={image} alt={`Random ${index}`} />
         ))}
