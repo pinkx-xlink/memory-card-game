@@ -27,3 +27,8 @@ body {
   width: 100px;
   align-self: center;
 }
+.random-img {
+  border: 1px solid yellow;
+  border-radius: 15px;
+  box-shadow: 3px 5px 10px 0px rgb(255, 187, 0);
+}
