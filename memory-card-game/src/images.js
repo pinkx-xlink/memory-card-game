@@ -4,7 +4,13 @@ const Gallery = () => {
   const [clickCount, setClickCount] = useState(0);
   const HandleImgClick = (event) => {
     
-    // let prevCount;
+    // const handleImageClick = (event.target.alt) => {
+    //   setClickCounts((prevCounts) => ({
+    //     ...prevCounts,
+    //     [event.target.alt]: (prevCounts[event.target.alt] || 0) + 1,
+    //   }));
+    // };
+
     setClickCount(prevCount => prevCount + 1);
     if (clickCount + 1 === 2) {
         alert('Clicked twice!! ): the Hidden Leaf has exploded.');
