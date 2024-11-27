@@ -22,13 +22,17 @@ const Gallery = () => {
     const selected = shuffled.slice(0, 3);
     setSelectedImages(selected);
   }
-  
+
+  const handleImgClick = () => {
+    console.log('Image clicked');
+  };
+
   return (
     <div class="gallery-container">
       <button class="random-img-btn" onClick={getRandomImages}>Get Random img</button>
       <div class="card-container">
         {selectedImages.map((image, index) => (
-          <img key={index} src={image} alt={`Random ${index}`} class="random-img" />
+          <img onClick={handleImgClick} key={index} src={image} alt={`Random ${index}`} class="random-img" />
         ))}
       </div> 
     </div>
