@@ -14,7 +14,7 @@ const AudioPlayer = () => {
     return (
         <>
         <audio ref={audioRef} src={myAudio} />
-        <button onClick={playAudio}>Play</button>
+        <button onClick={playAudio}>♪</button>
         <button onClick={pauseAudio}>Pause</button>
         </>
     )
