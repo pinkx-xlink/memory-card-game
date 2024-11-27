@@ -80,3 +80,4 @@ CHARACTER CARDS SOURCE: https://api-dattebayo.vercel.app/cards
 TO-DO:
 - Update background photo based on level; use images in chronological order
 - Add soundtrack - different sound for each level 
+- Add name tags to each character card
