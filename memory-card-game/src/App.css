@@ -33,7 +33,9 @@ h1 {
   margin: 10px;
   background-color: rgba(172, 30, 201, 0.397);
   min-height: 50vh;
+  border: 10px groove purple;
   border-radius: 15px;
+  box-shadow: 5px 5px 10px 5px white;
   padding: 10px;
 }
 .card-container {
