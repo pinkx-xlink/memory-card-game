@@ -12,8 +12,18 @@ body {
   padding: 0;
 }
 
+.gallery-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 10px;
+}
 .card-container {
   display: flex;
   align-items:center;
   justify-content: space-evenly;
+}
+.random-img-btn {
+  width: 100px;
+  align-self: center;
 }
