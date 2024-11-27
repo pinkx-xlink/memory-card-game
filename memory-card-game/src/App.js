@@ -1,4 +1,5 @@
 import './App.css';
+import Gallery from './images';
 // import React, { useEffect, useState } from 'react';
 
 
@@ -14,7 +15,7 @@ function App() {
         <header className="App-header">
           {/* dding h1 added a silly black margin at the top of the page */}
           <h1>Memory Card Game</h1>
-          
+          <button onClick={Gallery}>Get Random img</button>
         </header>
         <div class="card-container">
 
