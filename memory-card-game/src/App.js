@@ -1,5 +1,6 @@
 import './App.css';
-import myAudio from './src/pain-theme-song';
+import myAudio from './audio/pain-theme-song.mp3'
+import React from 'react';
 
 function App() {
   function startGame() {
@@ -7,17 +8,6 @@ function App() {
   }
   startGame();
   
-  const AudioPlayer = () => {
-    const audioRef = React.useRef(null);
-
-    const playAudio = () => {
-      audioRef.current.play();
-    };
-  
-    const pauseAudio = () => {
-      audioRef.current.pause();
-    };
-  }
   return (
     <>
       <div className="App">
@@ -26,14 +16,32 @@ function App() {
           <h1>Memory Card Game</h1>
         </header>
         <div class="card-container">
-        <audio ref={audioRef} src={myAudio} />
-      <button onClick={playAudio}>Play</button>
-      <button onClick={pauseAudio}>Pause</button>
+        
         </div>
         
       </div>
     </>
   );
+}
+
+
+const AudioPlayer = () => {
+  const audioRef = React.useRef(null);
+
+  const playAudio = () => {
+    audioRef.current.play();
+  };
+
+  const pauseAudio = () => {
+    audioRef.current.pause();
+  };
+  return (
+    <>
+      <audio ref={audioRef} src={myAudio} />
+      <button onClick={playAudio}>Play</button>
+      <button onClick={pauseAudio}>Pause</button>
+    </>
+  )
 }
 
 export default App;
