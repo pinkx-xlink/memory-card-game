@@ -44,7 +44,7 @@ const Gallery = () => {
     {id: 'gaara', src: 'https://static.wikia.nocookie.net/naruto/images/2/20/Gaara_in_Part_I.png', alt: 'Gaara of the Hidden Sand'},
     // {src: '', alt: ''}
   ];
-  // narutoImgUrl, sasukeImgUrl, tsunadeImgUrl, shikamaruImgUrl, zabuzaImgUrl, asumaImgUrl, gamatatsuImgUrl, kankuroImgUrl, hinataImgUrl, chojiImgUrl, kakashiImgUrl, gaaraImgUrl];
+
   const [selectedImages, setSelectedImages] = useState([]);
 
   const getRandomImages = () => {
