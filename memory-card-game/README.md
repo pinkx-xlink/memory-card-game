@@ -81,3 +81,4 @@ TO-DO:
 - Update background photo based on level; use images in chronological order
 - Add soundtrack - different sound for each level 
 - Add name tags to each character card
+- Add loop to audio clip
