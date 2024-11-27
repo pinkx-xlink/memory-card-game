@@ -2,9 +2,9 @@ body {
   background-image: url('img/hidden-leaf-village.webp');
   background-size: cover;
   background-position: center;
+  height: 100vh;
 }
 .App {
-  height: 100vh;
   text-align: center;
 }
 .App-header {
