@@ -42,6 +42,7 @@ const Gallery = () => {
 
   const handleImgClick = (event) => {
     console.log(`You clicked ${event.target.alt}`);
+    getRandomImages();
   };
 
   return (
