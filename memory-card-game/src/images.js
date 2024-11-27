@@ -2,12 +2,16 @@ import React, { useState, useEffect } from "react";
 // import ClickableImage from "./clickCounter";
 const Gallery = () => {
   const [clickCounts, setClickCounts] = useState({});
-  const handleImgClick = (image.id) => {
-       setClickCounts((prevCounts) => ({
-         ...prevCounts,
-         [image.id]: (prevCounts[image.id] || 0) + 1,
-       }));
-    };
+  
+  const handleImageClick = (imageId) => {
+    setClickCounts((prevCounts) => ({
+      ...prevCounts,
+      [imageId]: (prevCounts[imageId] || 0) + 1, }));
+      if (clickCounts[imageId] + 1 === 2) {
+      alert('You clicked the same image twice! The Hidden Leaf Village has exploded.');
+      setClickCounts(0);
+      }
+  };
   
     // THIS WORKS KINDA -
     // but it goes off when any 2 img are clicked, not the same one twice.
@@ -18,8 +22,8 @@ const Gallery = () => {
     //     setClickCount(0);
     // }
     
-    console.log(`You clicked ${event.target.alt}`);
-    getRandomImages();
+    // console.log(`You clicked ${imageId}`);
+    // getRandomImages();
     // ClickableImage();
     //return (
       
@@ -57,12 +61,12 @@ const Gallery = () => {
       <button class="random-img-btn" onClick={getRandomImages}>Get Random img</button>
       <div class="card-container">
         {selectedImages.map((image, index) => (
-          <img onClick={HandleImgClick} key={index} src={image.src} alt={`${image.alt}`} class="random-img" />
+          <img onClick={handleImageClick && getRandomImages} key={index} src={image.src} alt={`${image.alt}`} class="random-img" />
         ))}
       </div> 
     </div>
     <div>
-    {images.map((image) => (
+    {imgArray.map((image) => (
       <div key={image.id}>
         <img
           src={image.src}
