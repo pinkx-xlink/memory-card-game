@@ -1,6 +1,23 @@
 import React, { useState, useEffect } from "react";
-import ClickableImage from "./clickCounter";
+// import ClickableImage from "./clickCounter";
 const Gallery = () => {
+  const [clickCount, setClickCount] = useState(0);
+  const HandleImgClick = (event) => {
+    
+    // let prevCount;
+    setClickCount(prevCount => prevCount + 1);
+    if (clickCount + 1 === 2) {
+        alert('Clicked twice!! ): the Hidden Leaf has exploded.');
+        // Add a gameover screen with a pic of Jiraiya Boy
+        setClickCount(0);
+    }
+    console.log(`You clicked ${event.target.alt}`);
+    getRandomImages();
+    // ClickableImage();
+    return (
+      <h2> LOSER :P </h2> 
+   )
+  };
   // const narutoImgUrl = "https://static.wikia.nocookie.net/naruto/images/d/d6/Naruto_Part_I.png"
   // const sasukeImgUrl = "https://static.wikia.nocookie.net/naruto/images/2/21/Sasuke_Part_1.png"; 
   // const tsunadeImgUrl = "https://static.wikia.nocookie.net/naruto/images/b/b3/Tsunade_infobox2.png";
@@ -40,18 +57,14 @@ const Gallery = () => {
     setSelectedImages(selected);
   }
 
-  const handleImgClick = (event) => {
-    console.log(`You clicked ${event.target.alt}`);
-    getRandomImages();
-    ClickableImage();
-  };
+ 
 
   return (
     <div class="gallery-container">
       <button class="random-img-btn" onClick={getRandomImages}>Get Random img</button>
       <div class="card-container">
         {selectedImages.map((image, index) => (
-          <img onClick={handleImgClick} key={index} src={image.src} alt={`${image.alt}`} class="random-img" />
+          <img onClick={HandleImgClick} key={index} src={image.src} alt={`${image.alt}`} class="random-img" />
         ))}
       </div> 
     </div>

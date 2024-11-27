@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const ClickableImage = () => {
+const ClickableImage = (event) => {
     const [clickCount, setClickCount] = useState(0);
     
     const handleClick = () => {
