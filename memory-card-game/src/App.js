@@ -1,5 +1,4 @@
 import './App.css';
-import myAudio from './audio/pain-theme-song.mp3'
 import React from 'react';
 
 function App() {
@@ -22,26 +21,6 @@ function App() {
       </div>
     </>
   );
-}
-
-
-const AudioPlayer = () => {
-  const audioRef = React.useRef(null);
-
-  const playAudio = () => {
-    audioRef.current.play();
-  };
-
-  const pauseAudio = () => {
-    audioRef.current.pause();
-  };
-  return (
-    <>
-      <audio ref={audioRef} src={myAudio} />
-      <button onClick={playAudio}>Play</button>
-      <button onClick={pauseAudio}>Pause</button>
-    </>
-  )
 }
 
 export default App;

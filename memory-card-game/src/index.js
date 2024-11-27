@@ -4,12 +4,13 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Gallery from './images';
-
+import AudioPlayer from './audio';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <App />
     <Gallery />
+    <AudioPlayer />
   </React.StrictMode>
 );
 
