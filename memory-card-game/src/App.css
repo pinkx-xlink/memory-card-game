@@ -1,4 +1,11 @@
+@font-face {
+  font-family: Permanent Marker;
+  font-style: normal;
+  font-weight: bold;
+  src: url(./Permanent_Marker/PermanentMarker-Regular.ttf) format(truetype);
+}
 body {
+  font-family: 'Permanent Marker';
   background-image: url('img/hidden-leaf-village.webp');
   background-size: cover;
   background-position: center;
