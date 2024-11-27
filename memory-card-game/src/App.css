@@ -4,6 +4,13 @@ body {
   background-position: center;
   height: 100vh;
 }
+h1 {
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(172, 30, 201, 0.397);
+}
 .App {
   text-align: center;
 }
@@ -17,6 +24,10 @@ body {
   flex-direction: column;
   gap: 10px;
   margin: 10px;
+  background-color: rgba(172, 30, 201, 0.397);
+  min-height: 50vh;
+  border-radius: 15px;
+  padding: 10px;
 }
 .card-container {
   display: flex;
