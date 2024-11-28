@@ -61,7 +61,7 @@ const Gallery = () => {
       <button class="random-img-btn" onClick={getRandomImages}>Get Random img</button>
       <div class="card-container">
         {selectedImages.map((image, id) => (
-          <img onClick={handleImageClick && getRandomImages} key={image.id} src={image.src} alt={`${image.alt}`} class="random-img" />
+          <img onClick={handleImageClick(image.id) && getRandomImages} key={image.id} src={image.src} alt={`${image.alt}`} class="random-img" />
         ))}
       </div> 
     </div>
