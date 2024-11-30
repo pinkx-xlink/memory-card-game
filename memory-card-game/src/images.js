@@ -1,33 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 // import ClickableImage from "./clickCounter";
 const Gallery = () => {
-  const imageRefs = useRef([]);
-  const [lastClicked, setLastClicked] = useState(null);
-
-  useEffect(() => {
-    const handleClick = (index) => {
-      if (lastClicked === index) {
-        alert('YOU CLICKED SAME PHOTO TWICE!! ):');
-      }
-      setLastClicked(index);
-    };
-
-    imageRefs.current.forEach((ref, index) => {
-      if (ref) {
-        ref.addEventListener('click', () => handleClick(index));
-      }
-    });
-
-    return () => {
-      imageRefs.current.forEach((ref) => {
-        if (ref) {
-          ref.removeEventListener('click', () => handleClick(index));
-        }
-      });
-    };
-  }, [lastClicked]);
-
-  
   // const [clickCount, setClickCount] = useState(0);
   // const HandleImgClick = (event) => {
     
