@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import Photo from "./clickCounter";
 // import ClickableImage from "./clickCounter";
 const Gallery = () => {
   // const [clickCount, setClickCount] = useState(0);
@@ -57,16 +58,7 @@ const Gallery = () => {
         ))}
       </div> 
     </div>
-    <div>
-      {[1, 2, 3].map((_, index) => (
-        <img
-          key={index}
-          src={`https://via.placeholder.com/150?text=Image+${index + 1}`}
-          ref={(el) => (imageRefs.current[index] = el)}
-          alt={`Image ${index + 1}`}
-        />
-      ))}
-    </div>
+
     </>
 
   );
