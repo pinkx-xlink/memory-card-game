@@ -1,6 +1,33 @@
 import React, { useState, useEffect, useRef } from "react";
 // import ClickableImage from "./clickCounter";
 const Gallery = () => {
+  const imageRefs = useRef([]);
+  const [lastClicked, setLastClicked] = useState(null);
+
+  useEffect(() => {
+    const handleClick = (index) => {
+      if (lastClicked === index) {
+        alert('YOU CLICKED SAME PHOTO TWICE!! ):');
+      }
+      setLastClicked(index);
+    };
+
+    imageRefs.current.forEach((ref, index) => {
+      if (ref) {
+        ref.addEventListener('click', () => handleClick(index));
+      }
+    });
+
+    return () => {
+      imageRefs.current.forEach((ref) => {
+        if (ref) {
+          ref.removeEventListener('click', () => handleClick(index));
+        }
+      });
+    };
+  }, [lastClicked]);
+
+  
   // const [clickCount, setClickCount] = useState(0);
   // const HandleImgClick = (event) => {
     
@@ -48,14 +75,27 @@ const Gallery = () => {
   }
 
   return (
+    <>
     <div class="gallery-container">
       <button class="random-img-btn" onClick={getRandomImages}>Get Random img</button>
       <div class="card-container">
         {selectedImages.map((image, index) => (
-          <img onClick={HandleImgClick} key={index} src={image.src} alt={`${image.alt}`} class="random-img" />
+          <img key={index} src={image.src} alt={`${image.alt}`} class="random-img" />
         ))}
       </div> 
     </div>
+    <div>
+      {[1, 2, 3].map((_, index) => (
+        <img
+          key={index}
+          src={`https://via.placeholder.com/150?text=Image+${index + 1}`}
+          ref={(el) => (imageRefs.current[index] = el)}
+          alt={`Image ${index + 1}`}
+        />
+      ))}
+    </div>
+    </>
+
   );
 };
 export default Gallery;
