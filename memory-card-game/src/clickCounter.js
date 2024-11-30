@@ -1,5 +1,23 @@
 import React, { useState } from "react";
 
+const Card = (props) => {
+    const [isClicked, setIsClicked] = useState(false);
+
+    const handleClick = () => {
+        if (isClicked) {
+            // props.setGameOver();
+            alert('GAME OVER!')
+        } else {
+            setIsClicked(true);
+            console.log('ur good bro');
+        }
+    };
+
+    return (
+        <h1>clicky stuff</h1>
+    )
+}
+
 // second rendition
 // const Photo = ({ src, alt }) => {
 //     const [clickCount, setClickCount] = useState(0);
@@ -38,4 +56,4 @@ import React, { useState } from "react";
 
 //export default ClickableImage;
 
-export default Photo;
+export default Card;
