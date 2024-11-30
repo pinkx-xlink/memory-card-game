@@ -1,20 +1,23 @@
 import React, { useState } from "react";
 
-export default function Photo({src, alt}) {
-    const [clickCount, setClickCount] = useState(0);
+// second rendition
+// const Photo = ({ src, alt }) => {
+//     const [clickCount, setClickCount] = useState(0);
 
-    const handleClick = () => {
-        setClickCount(clickCount + 1);
-        console.log(`click count: ${clickCount}`);
-    };
+//     const handleClick = () => {
+//         setClickCount(clickCount + 1);
+//         console.log(`click count: ${clickCount}`);
+//     };
 
-    return (
-        <div>
-            <img src={src} alt={alt} onClick={handleClick} style={{ cursor: 'pointer' }} />
-            <p>Clicks: {clickCount}</p>
-        </div>
-    )
-}
+//     return (
+//         <div>
+//             <img src={src} alt={alt} onClick={handleClick} style={{ cursor: 'pointer' }} />
+//             <p>Clicks: {clickCount}</p>
+//         </div>
+//     )
+// }
+
+
 // first rendition
 // const ClickableImage = (event) => {
 //     const [clickCount, setClickCount] = useState(0);
@@ -34,3 +37,5 @@ export default function Photo({src, alt}) {
 // }
 
 //export default ClickableImage;
+
+export default Photo;

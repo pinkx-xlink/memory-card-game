@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
-import Photo from "./clickCounter";
+import React, { useState, useEffect } from "react";
+// import Photo from "./clickCounter";
 // import ClickableImage from "./clickCounter";
 const Gallery = () => {
   // const [clickCount, setClickCount] = useState(0);
@@ -21,7 +21,6 @@ const Gallery = () => {
   //  )
   // };
 
-
   const imgArray = [
     {id: 'naruto', src: 'https://static.wikia.nocookie.net/naruto/images/d/d6/Naruto_Part_I.png', alt: 'Naruto Uzamaki'},
     {id: 'sasuke', src: 'https://static.wikia.nocookie.net/naruto/images/2/21/Sasuke_Part_1.png', alt: 'Sasuke Uchiha'},
@@ -38,6 +37,7 @@ const Gallery = () => {
     // {src: '', alt: ''}
   ];
 
+  
   const [selectedImages, setSelectedImages] = useState([]);
 
   const getRandomImages = () => {
@@ -54,7 +54,7 @@ const Gallery = () => {
       <button class="random-img-btn" onClick={getRandomImages}>Get Random img</button>
       <div class="card-container">
         {selectedImages.map((image, index) => (
-          <img onClick={getRandomImages && Photo} key={index} src={image.src} alt={`${image.alt}`} class="random-img" />
+          <img onClick={getRandomImages} key={index} src={image.src} alt={`${image.alt}`} class="random-img" />
         ))}
       </div> 
     </div>
