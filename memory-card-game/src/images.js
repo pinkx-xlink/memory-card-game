@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 // import ClickableImage from "./clickCounter";
 const Gallery = () => {
   const [clickCount, setClickCount] = useState(0);
@@ -7,6 +7,7 @@ const Gallery = () => {
     // let prevCount;
     setClickCount(prevCount => prevCount + 1);
     if (clickCount + 1 === 2) {
+      console.log(event.target.alt)
         alert('Clicked twice!! ): the Hidden Leaf has exploded.');
         // Add a gameover screen with a pic of Jiraiya Boy
         setClickCount(0);
