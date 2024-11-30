@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Photo = ({ src, alt }) => {
+export default function Photo({src, alt}) {
     const [clickCount, setClickCount] = useState(0);
 
     const handleClick = () => {
@@ -34,5 +34,3 @@ const Photo = ({ src, alt }) => {
 // }
 
 //export default ClickableImage;
-
-export default Photo;
