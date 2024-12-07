@@ -30,7 +30,6 @@ const Gallery = () => {
 
   const [clickedImages, setClickedImages] = useState([]);
   const [score, setScore] = useState(0);
-  const [imgClicksCounter, setImgClicksCounter] = useState(0);
   // const [selectedImages, setSelectedImages] = useState([]);
   const [images, setImages] = useState(getRandomImages(imgArray))
   // const [clickCount, setClickCount] = useState(0);
@@ -55,16 +54,24 @@ const Gallery = () => {
   
 
   // count clicks of an image
+  
+  let isClicked = false;
+  const getImgClick = (clickedImages) => {
+    clickedImages.isClicked = true;
+    console.log(clickedImages.isClicked);
+  }
+  
+  //console.log(isClicked)
   const incrementScore = (image) => {
     if (clickedImages.includes(image)) {
       console.log('DONT CLICK ME AGAIN ):');
-
+      getImgClick(image);
       return;
     }
     setScore(score + 1);
     // update clicked images
     setClickedImages(current => [...current, image]);
-    if (score + 1 === 2) {
+    if (clickedImages.isClicked === true) {
       alert(`NOOO! You clicked twice. game over.`)
       setScore(0);
       // reset clicked images
