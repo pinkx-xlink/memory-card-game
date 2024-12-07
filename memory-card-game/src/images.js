@@ -1,10 +1,35 @@
 import React, { useState, useEffect } from "react";
 // import Photo from "./clickCounter";
 // import ClickableImage from "./clickCounter";
+
+const imgArray = [
+  {id: 'naruto', src: 'https://static.wikia.nocookie.net/naruto/images/d/d6/Naruto_Part_I.png', alt: 'Naruto Uzamaki'},
+  {id: 'sasuke', src: 'https://static.wikia.nocookie.net/naruto/images/2/21/Sasuke_Part_1.png', alt: 'Sasuke Uchiha'},
+  {id: 'tsunade', src: 'https://static.wikia.nocookie.net/naruto/images/b/b3/Tsunade_infobox2.png', alt: 'Lady Tsunade'},
+  {id: 'shikamaru', src: 'https://static.wikia.nocookie.net/naruto/images/4/44/Shikamaru_Part_I.png', alt: 'Shikamaru'},
+  {id: 'zabuza', src: 'https://static.wikia.nocookie.net/naruto/images/3/37/Zabuza_Momochi.png', alt: 'Zabuza of the Hidden Mist'},
+  {id: 'asuma', src: 'https://static.wikia.nocookie.net/naruto/images/7/7c/Asuma.png', alt: 'Asuma'},
+  {id: 'gamatatsu', src: 'https://static.wikia.nocookie.net/naruto/images/8/81/Gamatatsu.png', alt: 'Gamatatsu'},
+  {id: 'kankuro', src: 'https://static.wikia.nocookie.net/naruto/images/7/7d/Kankur%C5%8D1.png', alt: 'Kankuro'},
+  {id: 'hinata', src: 'https://static.wikia.nocookie.net/naruto/images/9/97/Hinata.png', alt: 'Hinata Hyuga'},
+  {id: 'choji', src: 'https://static.wikia.nocookie.net/naruto/images/7/7d/Ch%C5%8Dji_Akimichi.png', alt: 'Choji'},
+  {id: 'kakashi', src: 'https://static.wikia.nocookie.net/naruto/images/2/27/Kakashi_Hatake.png', alt: 'Kakashi Hatake'},
+  {id: 'gaara', src: 'https://static.wikia.nocookie.net/naruto/images/2/20/Gaara_in_Part_I.png', alt: 'Gaara of the Hidden Sand'},
+  // {src: '', alt: ''}
+];
+
 const Gallery = () => {
+  const getRandomImages = () => {
+    let randomCharacters = [];
+    const shuffled = imgArray.sort(() => 0.5 - Math.random());
+    const selected = shuffled.slice(0, 4);
+    setSelectedImages(selected);
+  }
+
   const [clickedImages, setClickedImages] = useState([]);
   const [score, setScore] = useState(0);
-
+  const [selectedImages, setSelectedImages] = useState([]);
+  const [images, setImages] = useState(getRandomImages(imgArray))
   // const [clickCount, setClickCount] = useState(0);
   // const HandleImgClick = (event) => {
     
@@ -24,32 +49,7 @@ const Gallery = () => {
   //  )
   // };
 
-  const imgArray = [
-    {id: 'naruto', src: 'https://static.wikia.nocookie.net/naruto/images/d/d6/Naruto_Part_I.png', alt: 'Naruto Uzamaki'},
-    {id: 'sasuke', src: 'https://static.wikia.nocookie.net/naruto/images/2/21/Sasuke_Part_1.png', alt: 'Sasuke Uchiha'},
-    {id: 'tsunade', src: 'https://static.wikia.nocookie.net/naruto/images/b/b3/Tsunade_infobox2.png', alt: 'Lady Tsunade'},
-    {id: 'shikamaru', src: 'https://static.wikia.nocookie.net/naruto/images/4/44/Shikamaru_Part_I.png', alt: 'Shikamaru'},
-    {id: 'zabuza', src: 'https://static.wikia.nocookie.net/naruto/images/3/37/Zabuza_Momochi.png', alt: 'Zabuza of the Hidden Mist'},
-    {id: 'asuma', src: 'https://static.wikia.nocookie.net/naruto/images/7/7c/Asuma.png', alt: 'Asuma'},
-    {id: 'gamatatsu', src: 'https://static.wikia.nocookie.net/naruto/images/8/81/Gamatatsu.png', alt: 'Gamatatsu'},
-    {id: 'kankuro', src: 'https://static.wikia.nocookie.net/naruto/images/7/7d/Kankur%C5%8D1.png', alt: 'Kankuro'},
-    {id: 'hinata', src: 'https://static.wikia.nocookie.net/naruto/images/9/97/Hinata.png', alt: 'Hinata Hyuga'},
-    {id: 'choji', src: 'https://static.wikia.nocookie.net/naruto/images/7/7d/Ch%C5%8Dji_Akimichi.png', alt: 'Choji'},
-    {id: 'kakashi', src: 'https://static.wikia.nocookie.net/naruto/images/2/27/Kakashi_Hatake.png', alt: 'Kakashi Hatake'},
-    {id: 'gaara', src: 'https://static.wikia.nocookie.net/naruto/images/2/20/Gaara_in_Part_I.png', alt: 'Gaara of the Hidden Sand'},
-    // {src: '', alt: ''}
-  ];
-
   
-  const [selectedImages, setSelectedImages] = useState([]);
-
-  const getRandomImages = () => {
-    let randomCharacters = [];
-    
-    const shuffled = imgArray.sort(() => 0.5 - Math.random());
-    const selected = shuffled.slice(0, 4);
-    setSelectedImages(selected);
-  }
 
   // count clicks of an image
   const incrementScore = (image) => {
@@ -58,16 +58,14 @@ const Gallery = () => {
       return;
     }
     setScore(score + 1);
-
     // update clicked images
     setClickedImages(current => [...current, image]);
-
     if (score >= 3) {
       setScore(0);
       // reset clicked images
       setClickedImages([]);
     }
-    getRandomImages();
+    setImages(getRandomImages(imgArray));
     console.log(score);
   }
   return (
@@ -75,8 +73,13 @@ const Gallery = () => {
     <div class="gallery-container">
       <button class="random-img-btn" onClick={getRandomImages}>Get Random img</button>
       <div class="card-container">
-        {selectedImages.map((image, index) => (
-          <img onClick={getRandomImages && incrementScore} key={index} src={image.src} alt={`${image.alt}`} class="random-img" />
+        {images.map((img) => (
+          <img 
+          onClick={() => incrementScore(img)} 
+          key={img.index} 
+          src={img.src} 
+          alt={`${img.alt}`} 
+          class="random-img" />
         ))}
       </div> 
     </div>
