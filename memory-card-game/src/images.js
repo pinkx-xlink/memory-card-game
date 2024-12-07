@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 // import Photo from "./clickCounter";
 // import ClickableImage from "./clickCounter";
 const Gallery = () => {
+  const [clickedImages, setClickedImages] = useState([]);
+  const [score, setScore] = useState(0);
+
   // const [clickCount, setClickCount] = useState(0);
   // const HandleImgClick = (event) => {
     
@@ -48,13 +51,32 @@ const Gallery = () => {
     setSelectedImages(selected);
   }
 
+  // count clicks of an image
+  const incrementScore = (image) => {
+    if (clickedImages.includes(image)) {
+      console.log('DONT CLICK ME AGAIN ):');
+      return;
+    }
+    setScore(score + 1);
+
+    // update clicked images
+    setClickedImages(current => [...current, image]);
+
+    if (score >= 3) {
+      setScore(0);
+      // reset clicked images
+      setClickedImages([]);
+    }
+    getRandomImages();
+    console.log(score);
+  }
   return (
     <>
     <div class="gallery-container">
       <button class="random-img-btn" onClick={getRandomImages}>Get Random img</button>
       <div class="card-container">
         {selectedImages.map((image, index) => (
-          <img onClick={getRandomImages} key={index} src={image.src} alt={`${image.alt}`} class="random-img" />
+          <img onClick={getRandomImages && incrementScore} key={index} src={image.src} alt={`${image.alt}`} class="random-img" />
         ))}
       </div> 
     </div>
