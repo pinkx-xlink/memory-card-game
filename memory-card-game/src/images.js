@@ -56,22 +56,28 @@ const Gallery = () => {
   // count clicks of an image
   
   let isClicked = false;
-  const getImgClick = (clickedImages) => {
-    clickedImages.isClicked = true;
-    console.log(clickedImages.isClicked);
-  }
+  
   
   //console.log(isClicked)
   const incrementScore = (image) => {
     if (clickedImages.includes(image)) {
       console.log('DONT CLICK ME AGAIN ):');
-      getImgClick(image);
+      
       return;
     }
     setScore(score + 1);
+    const getImgClick = (clickedImages) => {
+      clickedImages.isClicked = true;
+      console.log(clickedImages.isClicked);
+    }
+    getImgClick(image);
     // update clicked images
     setClickedImages(current => [...current, image]);
-    if (clickedImages.isClicked === true) {
+    if (image.isClicked === true 
+      // && ...
+      // need to add another param to make this only be called
+      // when the SAME img is clicked twice... use img.id or something
+    ) {
       alert(`NOOO! You clicked twice. game over.`)
       setScore(0);
       // reset clicked images
