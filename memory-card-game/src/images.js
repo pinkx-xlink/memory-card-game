@@ -19,12 +19,13 @@ const imgArray = [
 ];
 
 const Gallery = () => {
-  const getRandomImages = () => {
-    let randomCharacters = [];
-    const shuffled = imgArray.sort(() => 0.5 - Math.random());
-    const selected = shuffled.slice(0, 4);
-    setSelectedImages(selected);
-  }
+  const getRandomImages = (input) => {
+    // let randomCharacters = [];
+    // const shuffled = imgArray.sort(() => 0.5 - Math.random());
+    // const selected = shuffled.slice(0, 4);
+    // setSelectedImages(selected);
+    return input.slice().sort(() => Math.random() - 0.5);
+  };
 
   const [clickedImages, setClickedImages] = useState([]);
   const [score, setScore] = useState(0);
