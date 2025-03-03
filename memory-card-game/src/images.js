@@ -60,7 +60,13 @@ const Gallery = () => {
   
   let isClicked = false;
   
-  
+  const toggleCardClick = (index) => {
+    setCardClick(prevStates => {
+      const newStates = [...prevStates];
+      newStates[index] = !newStates[index];
+      return newStates;
+    });
+  };
   //console.log(isClicked)
   const incrementScore = (image) => {
     if (clickedImages.includes(image)) {
@@ -94,9 +100,11 @@ const Gallery = () => {
     <div class="gallery-container">
       <button class="random-img-btn" onClick={getRandomImages}>Get Random img</button>
       <div class="card-container">
-        {images.map((img) => (
-          <div key={img.index}>
-            <button onClick={() => incrementScore(img)}> btn </button>
+        {images.map((img, index) => (
+          <div key={index}>
+            <button onClick={() => toggleCardClick(index)}> 
+              {cardClick[index] ? 'active' : 'inactive'} 
+            </button>
             <img 
             src={img.src} 
             alt={`${img.alt}`} 
