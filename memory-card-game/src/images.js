@@ -28,13 +28,10 @@ const Gallery = () => {
       prevCounts[index] = prevCounts[index] + 1
       const newCounts = [...prevCounts];
       newCounts[index] = prevCounts[index];
-      // this line sends an alert when an element is clicked 3x,
-      // however it needs refactored to read prevCounts as a 
-      // # value instead of as a string!
       // Also needs refactored because toggleClick runs 2x,
       // so the alert sends 1 click sooner than it should
       // due to additional rerender
-      if (cardClickCount[index] === ',111') {
+      if (cardClickCount[index] === 3) {
          alert('2 cliks')
       }
       console.log(cardClickCount[index])
