@@ -1,8 +1,4 @@
 import React, { useState, useEffect } from "react";
-// import Photo from "./clickCounter";
-// import ClickableImage from "./clickCounter";
-
-
 
 const Gallery = () => {
   const imgArray = [
@@ -39,10 +35,6 @@ const Gallery = () => {
         prevCounts[index] = prevCounts[index] + 1
         const newCounts = [...prevCounts];
         newCounts[index] = prevCounts[index];
-        // Also needs refactored because toggleClick runs 2x,
-        // so the alert sends 1 click sooner than it should
-        // due to additional rerender
-        
         console.log(cardClickCount[index])
         return newCounts;
       });
@@ -66,38 +58,7 @@ const Gallery = () => {
 
   const [clickedImages, setClickedImages] = useState([]);
   
-  // const [selectedImages, setSelectedImages] = useState([]);
   const [images, setImages] = useState(getRandomImages(imgArray))
-  // const [clickCount, setClickCount] = useState(0);
-  // const HandleImgClick = (event) => {
-
-  //   // let prevCount;
-  //   setClickCount(prevCount => prevCount + 1);
-  //   if (clickCount + 1 === 2) {
-  //     console.log(event.target.alt)
-  //       alert('Clicked twice!! ): the Hidden Leaf has exploded.');
-  //       // Add a gameover screen with a pic of Jiraiya Boy
-  //       setClickCount(0);
-  //   }
-  //   console.log(`You clicked ${event.target.alt}`);
-  //   getRandomImages();
-  //   // ClickableImage();
-  //   return (
-  //     <h2> LOSER :P </h2>
-  //  )
-  // };
-
-  // const incrementScore = (image) => {
-  //   if (clickedImages.includes(image)) {
-  //     console.log('DONT CLICK ME AGAIN ):');
-
-  //     return;
-  //   }
-  //   setScore(score + 1);
-    
-  //   setImages(getRandomImages(imgArray));
-  //   console.log(score);
-  // }
   return (
     <>
     <h1> Score: {score} </h1>
@@ -116,9 +77,7 @@ const Gallery = () => {
         ))}
       </div>
     </div>
-
     </>
-
   );
 };
 export default Gallery;
