@@ -21,8 +21,36 @@ const Gallery = () => {
     // {src: '', alt: ''}
   ];
   const [cardClick, setCardClick] = useState(imgArray.map(() => false));
+  const [cardClickCount, setCardClickCount] = useState(imgArray.map(() => (0)));
+
+  const toggleCardClick = (index) => {
+    setCardClickCount(prevCounts => {
+      prevCounts[index] = prevCounts[index] + 1
+      const newCounts = [...prevCounts];
+      newCounts[index] = prevCounts[index];
+      // this line sends an alert when an element is clicked 3x,
+      // however it needs refactored to read prevCounts as a 
+      // # value instead of as a string!
+      // Also needs refactored because toggleClick runs 2x,
+      // so the alert sends 1 click sooner than it should
+      // due to additional rerender
+      if (cardClickCount[index] === ',111') {
+         alert('2 cliks')
+      }
+      console.log(cardClickCount[index])
+      return newCounts;
+    });
+    setCardClick(prevStates => {
+      const newStates = [...prevStates];
+      newStates[index] = !newStates[index];
+      if (newStates[index]) {
+        alert('state changed')
+      }
+      return newStates;
+    });
+  };
   
-  
+
   const getRandomImages = (input) => {
     return input.slice().sort(() => Math.random() - 0.5);
   };
@@ -33,7 +61,7 @@ const Gallery = () => {
   const [images, setImages] = useState(getRandomImages(imgArray))
   // const [clickCount, setClickCount] = useState(0);
   // const HandleImgClick = (event) => {
-    
+
   //   // let prevCount;
   //   setClickCount(prevCount => prevCount + 1);
   //   if (clickCount + 1 === 2) {
@@ -46,28 +74,25 @@ const Gallery = () => {
   //   getRandomImages();
   //   // ClickableImage();
   //   return (
-  //     <h2> LOSER :P </h2> 
+  //     <h2> LOSER :P </h2>
   //  )
   // };
 
-  
+
 
   // count clicks of an image
-  
+
   let isClicked = false;
-  
-  const toggleCardClick = (index) => {
-    setCardClick(prevStates => {
-      const newStates = [...prevStates];
-      newStates[index] = !newStates[index];
-      return newStates;
-    });
-  };
+
+ 
+
+
+
   //console.log(isClicked)
   const incrementScore = (image) => {
     if (clickedImages.includes(image)) {
       console.log('DONT CLICK ME AGAIN ):');
-      
+
       return;
     }
     setScore(score + 1);
@@ -78,7 +103,7 @@ const Gallery = () => {
     getImgClick(image);
     // update clicked images
     setClickedImages(current => [...current, image]);
-    if (image.isClicked === true 
+    if (image.isClicked === true
       // && ...
       // need to add another param to make this only be called
       // when the SAME img is clicked twice... use img.id or something
@@ -98,16 +123,16 @@ const Gallery = () => {
       <div class="card-container">
         {images.map((img, index) => (
           <div key={index}>
-            <button onClick={() => toggleCardClick(index)}> 
-              {cardClick[index] ? 'active' : 'inactive'} 
+            <button onClick={() => toggleCardClick(index)}>
+              {cardClick[index] ? 'active' : 'inactive'}
             </button>
-            <img 
-            src={img.src} 
-            alt={`${img.alt}`} 
+            <img
+            src={img.src}
+            alt={`${img.alt}`}
             class="random-img" />
           </div>
         ))}
-      </div> 
+      </div>
     </div>
 
     </>
