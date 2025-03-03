@@ -22,21 +22,28 @@ const Gallery = () => {
   ];
   const [cardClick, setCardClick] = useState(imgArray.map(() => false));
   const [cardClickCount, setCardClickCount] = useState(imgArray.map(() => (0)));
+  const [score, setScore] = useState(0);
 
   const toggleCardClick = (index) => {
-    setCardClickCount(prevCounts => {
-      prevCounts[index] = prevCounts[index] + 1
-      const newCounts = [...prevCounts];
-      newCounts[index] = prevCounts[index];
-      // Also needs refactored because toggleClick runs 2x,
-      // so the alert sends 1 click sooner than it should
-      // due to additional rerender
-      if (cardClickCount[index] === 3) {
-         alert('2 cliks')
-      }
-      console.log(cardClickCount[index])
-      return newCounts;
-    });
+    if (cardClickCount[index] >= 2) {
+      alert('2 cliks - GAMEOVER');
+      setScore(0);
+      return score
+   } else if (cardClickCount[index] <= 2) {
+      console.log(`Keep clickin'. Score: ${cardClickCount[index]}`);
+      setCardClickCount(prevCounts => {
+        prevCounts[index] = prevCounts[index] + 1
+        const newCounts = [...prevCounts];
+        newCounts[index] = prevCounts[index];
+        // Also needs refactored because toggleClick runs 2x,
+        // so the alert sends 1 click sooner than it should
+        // due to additional rerender
+        
+        console.log(cardClickCount[index])
+        return newCounts;
+      });
+    }
+    
     setCardClick(prevStates => {
       const newStates = [...prevStates];
       newStates[index] = !newStates[index];
@@ -45,6 +52,7 @@ const Gallery = () => {
       }
       return newStates;
     });
+    console.log(score);
   };
   
 
@@ -53,7 +61,7 @@ const Gallery = () => {
   };
 
   const [clickedImages, setClickedImages] = useState([]);
-  const [score, setScore] = useState(0);
+  
   // const [selectedImages, setSelectedImages] = useState([]);
   const [images, setImages] = useState(getRandomImages(imgArray))
   // const [clickCount, setClickCount] = useState(0);
