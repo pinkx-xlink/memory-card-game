@@ -24,10 +24,6 @@ const Gallery = () => {
   
   
   const getRandomImages = (input) => {
-    // let randomCharacters = [];
-    // const shuffled = imgArray.sort(() => 0.5 - Math.random());
-    // const selected = shuffled.slice(0, 4);
-    // setSelectedImages(selected);
     return input.slice().sort(() => Math.random() - 0.5);
   };
 
