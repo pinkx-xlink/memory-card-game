@@ -24,12 +24,16 @@ const Gallery = () => {
   const [cardClickCount, setCardClickCount] = useState(imgArray.map(() => (0)));
   const [score, setScore] = useState(0);
 
+  const incrementScore = function () {
+    setScore(score + 1);
+  }
   const toggleCardClick = (index) => {
     if (cardClickCount[index] >= 2) {
       alert('2 cliks - GAMEOVER');
       setScore(0);
       return score
    } else if (cardClickCount[index] <= 2) {
+    incrementScore();
       console.log(`Keep clickin'. Score: ${cardClickCount[index]}`);
       setCardClickCount(prevCounts => {
         prevCounts[index] = prevCounts[index] + 1
@@ -96,6 +100,7 @@ const Gallery = () => {
   // }
   return (
     <>
+    <h1> Score: {score} </h1>
     <div class="gallery-container">
       <div class="card-container">
         {images.map((img, index) => (
