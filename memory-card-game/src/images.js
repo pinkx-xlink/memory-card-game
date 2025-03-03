@@ -55,8 +55,6 @@ const Gallery = () => {
   const getRandomImages = (input) => {
     return input.slice().sort(() => Math.random() - 0.5);
   };
-
-  const [clickedImages, setClickedImages] = useState([]);
   
   const [images, setImages] = useState(getRandomImages(imgArray))
   return (
