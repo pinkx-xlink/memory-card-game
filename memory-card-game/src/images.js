@@ -5,6 +5,7 @@ import React, { useState, useEffect } from "react";
 
 
 const Gallery = () => {
+  const [cardClick, setCardClick] = useState(false);
   const imgArray = [
     {id: 'naruto', src: 'https://static.wikia.nocookie.net/naruto/images/d/d6/Naruto_Part_I.png', alt: 'Naruto Uzamaki'},
     {id: 'sasuke', src: 'https://static.wikia.nocookie.net/naruto/images/2/21/Sasuke_Part_1.png', alt: 'Sasuke Uchiha'},
