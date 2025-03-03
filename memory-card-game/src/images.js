@@ -75,44 +75,17 @@ const Gallery = () => {
   //  )
   // };
 
+  // const incrementScore = (image) => {
+  //   if (clickedImages.includes(image)) {
+  //     console.log('DONT CLICK ME AGAIN ):');
 
-
-  // count clicks of an image
-
-  let isClicked = false;
-
- 
-
-
-
-  //console.log(isClicked)
-  const incrementScore = (image) => {
-    if (clickedImages.includes(image)) {
-      console.log('DONT CLICK ME AGAIN ):');
-
-      return;
-    }
-    setScore(score + 1);
-    const getImgClick = (clickedImages) => {
-      clickedImages.isClicked = true;
-      console.log(clickedImages.isClicked);
-    }
-    getImgClick(image);
-    // update clicked images
-    setClickedImages(current => [...current, image]);
-    if (image.isClicked === true
-      // && ...
-      // need to add another param to make this only be called
-      // when the SAME img is clicked twice... use img.id or something
-    ) {
-      alert(`NOOO! You clicked twice. game over.`)
-      setScore(0);
-      // reset clicked images
-      setClickedImages([]);
-    }
-    setImages(getRandomImages(imgArray));
-    console.log(score);
-  }
+  //     return;
+  //   }
+  //   setScore(score + 1);
+    
+  //   setImages(getRandomImages(imgArray));
+  //   console.log(score);
+  // }
   return (
     <>
     <div class="gallery-container">
@@ -120,7 +93,7 @@ const Gallery = () => {
         {images.map((img, index) => (
           <div key={index}>
             <button onClick={() => toggleCardClick(index)}>
-              {cardClick[index] ? 'active' : 'inactive'}
+              {cardClick[index] ? 'clicked' : 'not clicked'}
             </button>
             <img
             src={img.src}
