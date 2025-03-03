@@ -5,7 +5,6 @@ import React, { useState, useEffect } from "react";
 
 
 const Gallery = () => {
-  const [cardClick, setCardClick] = useState(false);
   const imgArray = [
     {id: 'naruto', src: 'https://static.wikia.nocookie.net/naruto/images/d/d6/Naruto_Part_I.png', alt: 'Naruto Uzamaki'},
     {id: 'sasuke', src: 'https://static.wikia.nocookie.net/naruto/images/2/21/Sasuke_Part_1.png', alt: 'Sasuke Uchiha'},
@@ -21,6 +20,9 @@ const Gallery = () => {
     {id: 'gaara', src: 'https://static.wikia.nocookie.net/naruto/images/2/20/Gaara_in_Part_I.png', alt: 'Gaara of the Hidden Sand'},
     // {src: '', alt: ''}
   ];
+  const [cardClick, setCardClick] = useState(imgArray.map(() => false));
+  
+  
   const getRandomImages = (input) => {
     // let randomCharacters = [];
     // const shuffled = imgArray.sort(() => 0.5 - Math.random());
@@ -93,12 +95,13 @@ const Gallery = () => {
       <button class="random-img-btn" onClick={getRandomImages}>Get Random img</button>
       <div class="card-container">
         {images.map((img) => (
-          <img 
-          onClick={() => incrementScore(img)} 
-          key={img.index} 
-          src={img.src} 
-          alt={`${img.alt}`} 
-          class="random-img" />
+          <div key={img.index}>
+            <button onClick={() => incrementScore(img)}> btn </button>
+            <img 
+            src={img.src} 
+            alt={`${img.alt}`} 
+            class="random-img" />
+          </div>
         ))}
       </div> 
     </div>
