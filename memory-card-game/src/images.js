@@ -19,7 +19,12 @@ const Gallery = () => {
   const [cardClick, setCardClick] = useState(imgArray.map(() => false));
   const [cardClickCount, setCardClickCount] = useState(imgArray.map(() => (0)));
   const [score, setScore] = useState(0);
-
+  const getRandomImages = (input) => {
+    return input.slice().sort(() => Math.random() - 0.5);
+  };
+  
+  const [images, setImages] = useState(getRandomImages(imgArray));
+  
   const incrementScore = function () {
     setScore(score + 1);
   }
@@ -30,33 +35,28 @@ const Gallery = () => {
       return score
    } else if (cardClickCount[index] <= 2) {
     incrementScore();
-      console.log(`Keep clickin'. Score: ${cardClickCount[index]}`);
-      setCardClickCount(prevCounts => {
-        prevCounts[index] = prevCounts[index] + 1
-        const newCounts = [...prevCounts];
-        newCounts[index] = prevCounts[index];
-        console.log(cardClickCount[index])
-        return newCounts;
-      });
-    }
+    setImages(getRandomImages(imgArray));
+    console.log(`Keep clickin'. Score: ${cardClickCount[index]}`);
+    setCardClickCount(prevCounts => {
+      prevCounts[index] = prevCounts[index] + 1
+      const newCounts = [...prevCounts];
+      newCounts[index] = prevCounts[index];
+      console.log(cardClickCount[index])
+      return newCounts;
+    });
+  }
     
-    setCardClick(prevStates => {
-      const newStates = [...prevStates];
-      newStates[index] = !newStates[index];
-      if (newStates[index]) {
-        alert('state changed')
-      }
-      return newStates;
+  setCardClick(prevStates => {
+    const newStates = [...prevStates];
+    newStates[index] = !newStates[index];
+    if (newStates[index]) {
+      alert('state changed')
+    }
+    return newStates;
     });
     console.log(score);
   };
   
-
-  const getRandomImages = (input) => {
-    return input.slice().sort(() => Math.random() - 0.5);
-  };
-  
-  const [images, setImages] = useState(getRandomImages(imgArray))
   return (
     <>
     <h1> Score: {score} </h1>
